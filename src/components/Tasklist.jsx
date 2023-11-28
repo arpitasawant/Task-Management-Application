@@ -12,10 +12,12 @@ const TaskList = () => {
       <ul>
         {tasks.map((task) => (
           <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+            {task.name} - Status: {task.completed ? 'Completed' : 'Not Completed'}
             <input type="checkbox" checked={task.completed} onChange={() => toggleTask(task.id)} />
-            {task.name} - {task.priority}
-            <button onClick={() => deleteTask(task.id)}>Delete</button>
-            <Link to={`/edit/${task.id}`}>Edit</Link>
+            <div>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
+              <Link to={`/edit/${task.id}`}>Edit</Link>
+            </div>
           </li>
         ))}
       </ul>

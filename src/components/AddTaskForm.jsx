@@ -1,6 +1,6 @@
 // AddTaskForm.js
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';  // Change this line
+import { Link, useNavigate } from 'react-router-dom';
 import { TaskContext } from './TaskContext';
 
 const AddTaskForm = () => {
@@ -8,13 +8,24 @@ const AddTaskForm = () => {
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [priority, setPriority] = useState('low');
-  const navigate = useNavigate();  // Change this line
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (taskName.trim() === '') return;
+
+    // Check if taskName is empty
+    if (taskName.trim() === '') {
+      setError('Task Name is required.');
+      return;
+    }
+
+    // Reset error if taskName is not empty
+    setError('');
+
+    // Add the task
     addTask({ name: taskName, description: taskDescription, priority });
-    navigate('/');  // Change this line
+    navigate('/');
   };
 
   return (
@@ -37,6 +48,7 @@ const AddTaskForm = () => {
             <option value="high">High</option>
           </select>
         </label>
+        {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message if there is an error */}
         <button type="submit">Add Task</button>
       </form>
       <Link to="/">Back to Task List</Link>

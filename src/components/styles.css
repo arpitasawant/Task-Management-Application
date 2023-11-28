@@ -1,86 +1,199 @@
 /* styles.css */
 
+/* General Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0;
+  background-color: #f7f7f7;
 }
 
 .container {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
+  background-color: rgb(215, 229, 24);
+  color: #ffffff;
+  padding: 15px;
   text-align: center;
-  border-radius: 8px 8px 0 0;
+  border-radius: 12px 12px 0 0;
 }
 
 h1 {
   margin-bottom: 20px;
+  color: #333;
+}
+
+/* Task List Styles */
+/* styles.css */
+
+/* ... (existing styles) */
+
+/* Task List Styles */
+.task-details {
+  display: flex;
+  align-items: center;
+}
+
+.task-name {
+  flex-grow: 1;
+  margin-right: 10px;
+  background-color: #d3d3d3; /* Highlight color */
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.completed .task-name {
+  text-decoration: line-through;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 li {
-  background-color: #fff;
+  background-color: #ffffff;
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+li:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 li input[type="checkbox"] {
   margin-right: 10px;
 }
 
-button {
-  background-color: #333;
-  color: #fff;
+/* Additional styling for buttons */
+li div {
+  display: flex;
+  gap: 10px;
+}
+
+button, a {
+  background-color: #28a745;
+  color: #ffffff;
   border: none;
-  padding: 8px;
+  padding: 12px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
-  background-color: #555;
+button:hover, a:hover {
+  background-color: #0056b3;
 }
 
+/* ... (existing styles) */
+
+/* Form Styles (AddTaskForm and EditTaskForm) */
 form {
   margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 input,
 textarea,
 select {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
   box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
+/* Link Styles */
 .link {
   display: block;
   margin-top: 20px;
   text-align: center;
-  color: #333;
+  color: #007bff;
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
 
 .link:hover {
-  color: #555;
+  color: #0056b3;
+}
+
+/* AddTaskForm and EditTaskForm Specific Styles */
+button[type="submit"] {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+}
+
+/* Animation Styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Additional Animation Styles */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-from-left {
+  animation: slideInFromLeft 0.5s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease-in-out;
 }
