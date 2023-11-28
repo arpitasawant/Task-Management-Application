@@ -1,48 +1,55 @@
-import React, { useState } from 'react';
+// EditTaskForm.js
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom'; // Change this line
+import { TaskContext } from './TaskContext';
 
-const EditTaskForm = ({ task, onSave }) => {
-  const [editedTaskName, setEditedTaskName] = useState(task.name);
-  const [editedTaskDescription, setEditedTaskDescription] = useState(task.description);
-  const [editedPriority, setEditedPriority] = useState(task.priority);
+const EditTaskForm = () => {
+  const { tasks, editTask } = useContext(TaskContext);
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+  const [priority, setPriority] = useState('low');
+  const navigate = useNavigate(); // Change this line
+  const { taskId } = useParams();
 
-  const handleSave = () => {
-    const editedTask = {
-      ...task,
-      name: editedTaskName,
-      description: editedTaskDescription,
-      priority: editedPriority,
-    };
+  useEffect(() => {
+    const task = tasks.find((task) => task.id === parseInt(taskId));
+    if (task) {
+      setTaskName(task.name);
+      setTaskDescription(task.description);
+      setPriority(task.priority);
+    }
+  }, [tasks, taskId]);
 
-    onSave(editedTask);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (taskName.trim() === '') return;
+    editTask(taskId, { name: taskName, description: taskDescription, priority });
+    navigate('/'); // Change this line
   };
 
   return (
     <div>
-      <h2>Edit Task</h2>
-      <label>
-        Task Name:
-        <input
-          type="text"
-          value={editedTaskName}
-          onChange={(e) => setEditedTaskName(e.target.value)}
-        />
-      </label>
-      <label>
-        Task Description:
-        <textarea
-          value={editedTaskDescription}
-          onChange={(e) => setEditedTaskDescription(e.target.value)}
-        />
-      </label>
-      <label>
-        Priority:
-        <select value={editedPriority} onChange={(e) => setEditedPriority(e.target.value)}>
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
-        </select>
-      </label>
-      <button onClick={handleSave}>Save Changes</button>
+      <h1>Edit Task</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Task Name:
+          <input type="text" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
+        </label>
+        <label>
+          Task Description:
+          <textarea value={taskDescription} onChange={(e) => setTaskDescription(e.target.value)} />
+        </label>
+        <label>
+          Priority:
+          <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <button type="submit">Save Changes</button>
+      </form>
+      <Link to="/">Back to Task List</Link>
     </div>
   );
 };
