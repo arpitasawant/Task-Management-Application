@@ -1,0 +1,13 @@
+input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  span {
+    display: inline-block;
+    max-width: 500px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
