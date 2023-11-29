@@ -18,5 +18,31 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `Task Management Application`
+# `Task Management Application`
+
+#### `Add Form Component:`
+Description: A form component for adding new tasks.
+How it works: It uses React's state (useState) to manage input values (task name, description, priority). On form submission, it calls a function from the TaskContext to add a new task.
+
+![Screenshot (139)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/842b5252-ce56-4b91-bc5f-6b1fe249ced7)
+
+
+
+![Screenshot (148)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/3bfd2daa-60f7-4706-a252-15857878ab45)
+
+#### `Task List Component:`
+
+Description: Displays a list of tasks with options to toggle completion status, delete tasks, and navigate to the edit form.
+How it works: It uses the TaskContext to access the task list, and React's state (useState) to manage the completion status of tasks. It maps through the tasks and renders them with corresponding options.
+
+![Screenshot (146)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/c5ee8cdb-c063-4ec0-8f34-61fac2c0ca06)
+
+#### `Edit Form Component:`
+
+Description: A form component for editing existing tasks.
+How it works: It uses React's state (useState and useEffect) to manage input values and fetch the details of the task being edited. On form submission, it calls a function from the TaskContext to edit the task.
+
+![Screenshot (150)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/6e7ec902-e470-47b7-bb31-36fe696bfafb)
+
+![Screenshot (151)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/e62ce6c5-80b1-45a2-be3f-80a224ba1311)
 
