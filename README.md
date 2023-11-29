@@ -49,3 +49,14 @@ How it works: It uses React's state (useState and useEffect) to manage input val
 
 ![Screenshot (155)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/32ad6c19-b9fa-4f96-810a-63dc59bd8fc1)
 
+#### `Delete Operation:`
+
+
+Description: Manages the deletion of tasks in the TaskList component.
+How it works:
+Rendering: The TaskList component maps through the tasks and renders a delete button for each task along with other task details.
+Deletion Trigger: When a user clicks the delete button, it triggers the deleteTask function from the TaskContext, passing the taskId as an argument.
+
+![Screenshot (146)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/23b33e1c-cc22-4d37-9f1c-e9712f0c08fe)
+
+![Screenshot (144)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/cfb9f301-0081-4202-b3dc-6c34fcbd9778)
