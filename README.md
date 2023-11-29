@@ -42,7 +42,10 @@ How it works: It uses the TaskContext to access the task list, and React's state
 Description: A form component for editing existing tasks.
 How it works: It uses React's state (useState and useEffect) to manage input values and fetch the details of the task being edited. On form submission, it calls a function from the TaskContext to edit the task.
 
-![Screenshot (150)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/6e7ec902-e470-47b7-bb31-36fe696bfafb)
 
-![Screenshot (151)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/e62ce6c5-80b1-45a2-be3f-80a224ba1311)
+![Screenshot (153)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/55ee38a2-fb44-40a9-b5c0-0e97f22e0074)
+
+![Screenshot (154)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/2a38152c-7d84-42ed-a903-266534a9b8bb)
+
+![Screenshot (155)](https://github.com/arpitasawant/Task-Management-Application/assets/97539573/32ad6c19-b9fa-4f96-810a-63dc59bd8fc1)
 
